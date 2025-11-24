@@ -16,7 +16,7 @@ An advanced AI-powered medical diagnostic system leveraging machine learning and
 
 **Try the interactive web application now!**
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
+[!(https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
 
 🔗 **[Launch Live Demo](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)**
 
