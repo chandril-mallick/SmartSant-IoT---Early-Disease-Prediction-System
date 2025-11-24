@@ -130,24 +130,34 @@ with st.sidebar:
 # Helper functions
 @st.cache_resource
 def load_urine_model():
-    """Load the optimized urine classifier model"""
+    """Load the optimized urine classifier model and preprocessor"""
     try:
         model_path = Path("models/urine_classifiers/optimized_urine_classifier.pkl")
+        preprocessor_path = Path("models/urine_preprocessor.pkl")
         metadata_path = Path("models/urine_classifiers/optimized_model_metadata.json")
+        
+        model = None
+        preprocessor = None
+        metadata = {}
         
         if model_path.exists():
             model = joblib.load(model_path)
-            metadata = {}
-            if metadata_path.exists():
-                with open(metadata_path, 'r') as f:
-                    metadata = json.load(f)
-            return model, metadata
         else:
-            st.warning("Urine model not found. Please train the model first.")
-            return None, {}
+            st.warning("⚠️ Urine model not found. Please train the model first.")
+            
+        if preprocessor_path.exists():
+            preprocessor = joblib.load(preprocessor_path)
+        else:
+            st.info("ℹ️ Preprocessor not found. Using direct input (may cause errors).")
+            
+        if metadata_path.exists():
+            with open(metadata_path, 'r') as f:
+                metadata = json.load(f)
+                
+        return model, preprocessor, metadata
     except Exception as e:
         st.error(f"Error loading urine model: {e}")
-        return None, {}
+        return None, None, {}
 
 @st.cache_resource
 def load_kidney_model():
@@ -250,7 +260,7 @@ if page == "🏠 Home":
     
     with col2:
         st.image("https://img.icons8.com/clouds/400/000000/artificial-intelligence.png", 
-                 use_column_width=True)
+                 use_container_width=True)
     
     st.markdown("---")
     
@@ -316,8 +326,8 @@ elif page == "💧 Urine Analysis":
     st.title("💧 Urine Disease Classification")
     st.markdown("### UTI (Urinary Tract Infection) Detection")
     
-    # Load model
-    model, metadata = load_urine_model()
+    # Load model and preprocessor
+    model, preprocessor, metadata = load_urine_model()
     
     if model is None:
         st.error("⚠️ Model not available. Please train the urine classifier first.")
@@ -381,33 +391,51 @@ elif page == "💧 Urine Analysis":
             conductivity = st.number_input("Conductivity (mS/cm)", min_value=0.0, max_value=50.0, 
                                           value=20.0, step=1.0)
             age = st.number_input("Patient Age", min_value=0, max_value=120, value=35)
+            sex = st.selectbox("Sex", ["Male", "Female"], help="Patient biological sex")
         
         st.markdown("---")
         
         # Predict button
         if st.button("🔍 Analyze Urine Sample", use_container_width=True):
-            # Prepare input data
+            # Prepare input data with ORIGINAL column names from training data
             input_data = pd.DataFrame({
+                # Map to original column names
+                'Age': [age],
+                'Gender': [sex],
+                'pH': [ph],
+                'Specific Gravity': [specific_gravity],
+                'WBC': [wbc_count],
+                'RBC': [rbc_count],
+                'Epithelial Cells': [0],  # Default value
+                'Mucous Threads': [0],  # Default value
+                'Amorphous Urates': [0],  # Default value
+                'Bacteria': [bacteria],
+                'Color': ['Yellow'],  # Default value
+                'Transparency': ['Clear' if turbidity == 0 else 'Cloudy'],
+                'Glucose': [glucose],
+                'Protein': [protein],
+                # Additional features (if needed by model)
                 'leukocyte_esterase': [leukocyte],
                 'nitrite': [nitrite],
-                'protein': [protein],
                 'blood': [blood],
-                'glucose': [glucose],
                 'ketones': [ketones],
-                'wbc_count': [wbc_count],
-                'rbc_count': [rbc_count],
-                'bacteria_count': [bacteria],
-                'ph': [ph],
-                'specific_gravity': [specific_gravity],
                 'creatinine': [creatinine],
-                'turbidity': [turbidity],
-                'conductivity': [conductivity],
-                'age': [age]
+                'conductivity': [conductivity]
             })
             
             try:
+                # Preprocess if preprocessor is available
+                if preprocessor is not None:
+                    input_processed = preprocessor.transform(input_data)
+                    # Convert to numpy array to avoid sklearn warning about feature names
+                    if hasattr(input_processed, 'values'):
+                        input_processed = input_processed.values
+                else:
+                    # Use raw data (may fail if model expects preprocessed features)
+                    input_processed = input_data.drop(columns=['sex'], errors='ignore').values
+                
                 # Make prediction
-                prediction_proba = model.predict_proba(input_data)[0]
+                prediction_proba = model.predict_proba(input_processed)[0]
                 threshold = metadata.get('threshold', 0.5)
                 prediction = 1 if prediction_proba[1] >= threshold else 0
                 
@@ -474,6 +502,7 @@ elif page == "💧 Urine Analysis":
                 
             except Exception as e:
                 st.error(f"Error during prediction: {e}")
+                st.info("💡 **Tip**: Make sure the model was trained with the same preprocessing pipeline.")
 
 # Page: Kidney Disease
 elif page == "🫘 Kidney Disease":
@@ -558,7 +587,7 @@ elif page == "🔬 Stool Analysis":
         col1, col2 = st.columns([1, 1])
         
         with col1:
-            st.image(image, caption="Uploaded Image", use_column_width=True)
+            st.image(image, caption="Uploaded Image", use_container_width=True)
         
         with col2:
             st.markdown("""

@@ -4,8 +4,29 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-orange.svg)](https://pytorch.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.68%2B-green.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B.svg)](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
+
+**Quick Links:** [🌐 Live Demo](https://smartsant-iot---early-disease-prediction-system.streamlit.app/) | [📖 Documentation](#documentation) | [🚀 Installation](#installation) | [💻 API Docs](#api-documentation)
 
 An advanced AI-powered medical diagnostic system leveraging machine learning and deep learning to predict diseases through **urine analysis**, **kidney disease classification**, and **Bristol stool scale image classification**. Built for IoT integration and real-time health monitoring.
+
+---
+
+## 🌐 Live Demo
+
+**Try the interactive web application now!**
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
+
+🔗 **[Launch Live Demo](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)**
+
+### Demo Features:
+- 💧 **Urine Analysis**: Real-time UTI detection with interactive form
+- 📊 **Visual Analytics**: Probability gauges and risk factor analysis
+- 🎨 **Modern UI**: Beautiful gradient design with responsive layout
+- ⚡ **Instant Results**: Get predictions in seconds
+
+> **Note**: The live demo uses the optimized Random Forest model with 93% accuracy. Simply enter test parameters and click "Analyze" to see results!
 
 ---
 
@@ -405,20 +426,42 @@ python3 training/evaluate_optimized_model.py
 
 ## 🚀 Deployment
 
+### Streamlit Cloud (Live) ✅
+
+The web application is **currently deployed** on Streamlit Cloud:
+
+🔗 **[https://smartsant-iot---early-disease-prediction-system.streamlit.app/](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)**
+
+**Deployment Steps**:
+1. Push code to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub repository
+4. Select `app.py` as the main file
+5. Deploy! (automatic updates on git push)
+
+**Features**:
+- ✅ Free hosting
+- ✅ Automatic HTTPS
+- ✅ Auto-deploy on git push
+- ✅ Built-in analytics
+
 ### Docker (Coming Soon)
 ```bash
 docker build -t smartsant-iot .
 docker run -p 8000:8000 smartsant-iot
 ```
 
-### Cloud Deployment
+### Cloud Deployment Options
+- **Streamlit Cloud**: ✅ Currently deployed (recommended for web app)
 - **AWS**: EC2 + S3 for model storage
 - **Google Cloud**: Cloud Run + Cloud Storage
 - **Azure**: App Service + Blob Storage
+- **Heroku**: Easy deployment with Procfile
 
 ### Production Checklist
+- [x] ✅ Streamlit Cloud deployment
+- [x] ✅ HTTPS/SSL certificates (automatic)
 - [ ] Environment variables for sensitive data
-- [ ] HTTPS/SSL certificates
 - [ ] Rate limiting and authentication
 - [ ] Model versioning
 - [ ] Monitoring and logging
