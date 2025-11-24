@@ -1,0 +1,28 @@
+{
+  "best_model": "Logistic Regression",
+  "best_model_file": "logistic_regression.pkl",
+  "performance": {
+    "model_name": "Logistic Regression",
+    "training_time": 0.013915061950683594,
+    "train_accuracy": 0.7696214219759926,
+    "train_precision": 0.7673992673992674,
+    "train_recall": 0.7737765466297323,
+    "train_f1": 0.7705747126436782,
+    "train_roc_auc": 0.8437089954803908,
+    "test_accuracy": 0.7361111111111112,
+    "test_precision": 0.13414634146341464,
+    "test_recall": 0.6875,
+    "test_f1": 0.22448979591836735,
+    "test_roc_auc": 0.7166819852941176,
+    "confusion_matrix": [
+      [
+        201,
+        71
+      ],
+      [
+        5,
+        11
+      ]
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+Evaluation Results
+============================================================
+
+Accuracy:     0.7361
+Precision:    0.1341
+Recall:       0.6875
+F1-Score:     0.2245
+Specificity:  0.7390
+ROC-AUC:      0.7167

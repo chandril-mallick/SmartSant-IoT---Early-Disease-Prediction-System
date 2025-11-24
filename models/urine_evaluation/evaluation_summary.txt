@@ -1,0 +1,9 @@
+Optimized Urine Classifier - Evaluation Summary
+======================================================================
+
+Accuracy:             0.8889
+Precision:            0.0556
+Recall (Sensitivity): 0.0625
+F1-Score:             0.0588
+Specificity:          0.9375
+ROC-AUC:              0.4489

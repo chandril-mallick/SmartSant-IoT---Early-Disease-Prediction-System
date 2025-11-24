@@ -1,0 +1,74 @@
+{
+  "Logistic Regression": {
+    "model_name": "Logistic Regression",
+    "training_time": 0.013915061950683594,
+    "train_accuracy": 0.7696214219759926,
+    "train_precision": 0.7673992673992674,
+    "train_recall": 0.7737765466297323,
+    "train_f1": 0.7705747126436782,
+    "train_roc_auc": 0.8437089954803908,
+    "test_accuracy": 0.7361111111111112,
+    "test_precision": 0.13414634146341464,
+    "test_recall": 0.6875,
+    "test_f1": 0.22448979591836735,
+    "test_roc_auc": 0.7166819852941176,
+    "confusion_matrix": [
+      [
+        201,
+        71
+      ],
+      [
+        5,
+        11
+      ]
+    ]
+  },
+  "Random Forest": {
+    "model_name": "Random Forest",
+    "training_time": 0.0959939956665039,
+    "train_accuracy": 0.9889196675900277,
+    "train_precision": 0.9962511715089035,
+    "train_recall": 0.9815327793167128,
+    "train_f1": 0.9888372093023255,
+    "train_roc_auc": 0.9995822281562876,
+    "test_accuracy": 0.9340277777777778,
+    "test_precision": 0.2857142857142857,
+    "test_recall": 0.125,
+    "test_f1": 0.17391304347826086,
+    "test_roc_auc": 0.739889705882353,
+    "confusion_matrix": [
+      [
+        267,
+        5
+      ],
+      [
+        14,
+        2
+      ]
+    ]
+  },
+  "Neural Network": {
+    "model_name": "Neural Network",
+    "training_time": 0.3944370746612549,
+    "train_accuracy": 0.9967682363804248,
+    "train_precision": 0.9953959484346224,
+    "train_recall": 0.9981532779316713,
+    "train_f1": 0.9967727063162748,
+    "train_roc_auc": 0.9999062144840646,
+    "test_accuracy": 0.9166666666666666,
+    "test_precision": 0.21428571428571427,
+    "test_recall": 0.1875,
+    "test_f1": 0.2,
+    "test_roc_auc": 0.7047334558823529,
+    "confusion_matrix": [
+      [
+        261,
+        11
+      ],
+      [
+        13,
+        3
+      ]
+    ]
+  }
+}

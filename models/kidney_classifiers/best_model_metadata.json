@@ -1,0 +1,56 @@
+{
+  "best_model": "Neural Network",
+  "best_model_file": "neural_network.pkl",
+  "performance": {
+    "model_name": "Neural Network",
+    "training_time": 25.34060311317444,
+    "train_accuracy": 0.9919665271966527,
+    "train_precision": 0.9919997309866858,
+    "train_recall": 0.9919665271966528,
+    "train_f1": 0.9919737278769324,
+    "train_roc_auc": 0.9997166669970271,
+    "test_accuracy": 0.7215189873417721,
+    "test_precision": 0.1984175810062016,
+    "test_recall": 0.19867601985562647,
+    "test_f1": 0.19505872066568025,
+    "test_roc_auc": 0.48299432794291797,
+    "confusion_matrix": [
+      [
+        1,
+        11,
+        4,
+        147,
+        1
+      ],
+      [
+        7,
+        24,
+        6,
+        371,
+        3
+      ],
+      [
+        5,
+        9,
+        6,
+        142,
+        2
+      ],
+      [
+        68,
+        205,
+        53,
+        2933,
+        28
+      ],
+      [
+        4,
+        6,
+        1,
+        71,
+        0
+      ]
+    ]
+  },
+  "num_classes": 5
+}
