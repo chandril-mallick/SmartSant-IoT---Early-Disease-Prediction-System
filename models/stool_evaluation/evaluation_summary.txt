@@ -1,9 +1,12 @@
 Bristol Stool Scale Classification - Evaluation Summary
 ======================================================================
 
-Accuracy:     0.1000
-Precision:    0.0714
-Recall:       0.0714
-F1-Score:     0.0714
-Specificity:  0.8532
-ROC-AUC:      0.4881
+Accuracy:            0.1000
+Balanced Accuracy:   0.1429
+Precision (macro):   0.0357
+Recall (macro):      0.1429
+F1-Score (macro):    0.0571
+Specificity (macro): 0.8571
+ROC-AUC (macro):     0.4702
+Log-loss:            8.4326
+Brier score:         0.1953

@@ -41,6 +41,8 @@ venv.bak/
 *.xls
 data/raw/
 data/processed/
+data/external/
+catboost_info/
 
 # Logs
 *.log

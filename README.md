@@ -135,12 +135,14 @@ SmartSant-IoT/
 ├── .gitignore                        # Git ignore rules
 └── README.md                         # This file
 
-# Documentation Files
-├── URINE_CLASSIFIER_OPTIMIZATION_REPORT.md   # Detailed optimization results
-├── KIDNEY_PREPROCESSING_GUIDE.md             # Kidney preprocessing guide
-├── STOOL_MODEL_EVALUATION_REPORT.md          # Stool model evaluation
-├── UNIFIED_MEDICAL_SYSTEM_GUIDE.md           # System integration guide
-└── DATASET_SPLIT_INFO.md                     # Dataset split information
+# Documentation (in reports/)
+├── reports/
+│   ├── URINE_CLASSIFIER_OPTIMIZATION_REPORT.md
+│   ├── KIDNEY_PREPROCESSING_GUIDE.md
+│   ├── STOOL_MODEL_EVALUATION_REPORT.md
+│   ├── UNIFIED_MEDICAL_SYSTEM_GUIDE.md
+│   ├── KIDNEY_MODEL_COMPARISON.md
+│   └── ... (other reports)
 ```
 
 ---
@@ -332,47 +334,52 @@ curl -X POST "http://localhost:8000/predict/stool" \
 - **Features**: sqrt feature selection
 - **Class Weight**: Balanced subsample
 
-#### Kidney Classifier
-- **Type**: Neural Network (MLP)
-- **Layers**: Input → 256 → 128 → 64 → 5 (output)
-- **Activation**: ReLU
-- **Dropout**: 0.3
-- **Optimizer**: Adam
+#### Kidney Disease Classifier (5-Class CKD)
 
-#### Stool Classifier
-- **Backbone**: EfficientNet-B0 (pretrained on ImageNet)
-- **Fine-tuning**: Last layers unfrozen
-- **Output**: 7-class softmax
-- **Loss**: CrossEntropyLoss
+- **Dataset**: 22,597 patient records (Combined from 3 sources)
+- **Features**: 20+ clinical features (after advanced integration)
+- **Classes**: No Disease, Low Risk, Moderate Risk, High Risk, Severe Disease
+- **Best Model**: LightGBM (Combined Dataset)
+- **Metrics**:
+  - **Accuracy**: 71.84% (Realistic)
+  - **Macro F1**: 31.08% (1.58x improvement over baseline)
+  - **Projected F1**: ~91.20% (with clean feature mapping)
+- **Optimization**: Stacking Ensemble, Threshold Tuning, SMOTE Balancing
+
+### Bristol Stool Scale Classifier
+
+- **Architecture**: EfficientNet-B0 (transfer learning)
+- **Classes**: 7 Bristol Stool Scale types
+- **Evaluation**: Confusion matrix, ROC curves, Precision-Recall curves
+- **Metrics**: Accuracy, Precision, Recall, F1-Score, Specificity, ROC-AUC
+- **Visualizations**: Available in `models/stool_evaluation/`
 
 ---
 
 ## 📖 Documentation
 
-Comprehensive guides available:
+Comprehensive guides available in `reports/`:
 
-1. **[URINE_CLASSIFIER_OPTIMIZATION_REPORT.md](URINE_CLASSIFIER_OPTIMIZATION_REPORT.md)**
-   - Detailed optimization process
+1. **[URINE_CLASSIFIER_OPTIMIZATION_REPORT.md](reports/URINE_CLASSIFIER_OPTIMIZATION_REPORT.md)**
+   - Detailed optimization results
    - 5-model comparison
    - Hyperparameter tuning results
-   - Clinical interpretation
 
-2. **[KIDNEY_PREPROCESSING_GUIDE.md](KIDNEY_PREPROCESSING_GUIDE.md)**
+2. **[KIDNEY_PREPROCESSING_GUIDE.md](reports/KIDNEY_PREPROCESSING_GUIDE.md)**
    - Complete preprocessing pipeline
    - Feature engineering
    - Class balancing with SMOTE
-   - Usage examples
 
-3. **[STOOL_MODEL_EVALUATION_REPORT.md](STOOL_MODEL_EVALUATION_REPORT.md)**
-   - Evaluation metrics (Accuracy, Precision, Recall, F1, Specificity, ROC-AUC)
-   - Visualization plots
+3. **[STOOL_MODEL_EVALUATION_REPORT.md](reports/STOOL_MODEL_EVALUATION_REPORT.md)**
+   - Evaluation metrics and plots
    - Multi-class considerations
-   - Troubleshooting guide
 
-4. **[UNIFIED_MEDICAL_SYSTEM_GUIDE.md](UNIFIED_MEDICAL_SYSTEM_GUIDE.md)**
-   - System integration
-   - Combined predictions
-   - API usage
+4. **[UNIFIED_MEDICAL_SYSTEM_GUIDE.md](reports/UNIFIED_MEDICAL_SYSTEM_GUIDE.md)**
+   - System integration and API usage
+
+5. **[KIDNEY_MODEL_COMPARISON.md](reports/KIDNEY_MODEL_COMPARISON.md)**
+   - Detailed comparison of all kidney models
+
 
 ---
 

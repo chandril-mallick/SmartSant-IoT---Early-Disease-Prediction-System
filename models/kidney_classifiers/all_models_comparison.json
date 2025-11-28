@@ -1,0 +1,123 @@
+{
+  "Logistic Regression": {
+    "parameters": {
+      "solver": "lbfgs",
+      "penalty": "l2",
+      "max_iter": 2000,
+      "class_weight": "balanced",
+      "C": 10
+    },
+    "performance": {
+      "cv_f1": 0.2683807075403434,
+      "accuracy": 0.11976630963972736,
+      "precision": 0.19584141627967852,
+      "recall": 0.18549083281288026,
+      "f1": 0.09169994491726303,
+      "auc": 0.48842480179169767
+    }
+  },
+  "Random Forest": {
+    "parameters": {
+      "n_estimators": 300,
+      "min_samples_split": 2,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "max_depth": null,
+      "class_weight": "balanced"
+    },
+    "performance": {
+      "cv_f1": 0.950495485881075,
+      "accuracy": 0.8001460564751705,
+      "precision": 0.16002921129503409,
+      "recall": 0.2,
+      "f1": 0.17779580797836375,
+      "auc": 0.502397141717889
+    }
+  },
+  "Gradient Boosting": {
+    "parameters": {
+      "subsample": 1.0,
+      "n_estimators": 200,
+      "min_samples_split": 5,
+      "max_features": "sqrt",
+      "max_depth": 7,
+      "learning_rate": 0.1
+    },
+    "performance": {
+      "cv_f1": 0.9457386692947486,
+      "accuracy": 0.7999026290165531,
+      "precision": 0.16001947893839785,
+      "recall": 0.1999391542439915,
+      "f1": 0.17776575601839328,
+      "auc": 0.5022179757868764
+    }
+  },
+  "Baseline LR": {
+    "parameters": "default",
+    "performance": {
+      "accuracy": 0.11976630963972736,
+      "precision": 0.19586958661572407,
+      "recall": 0.18549083281288026,
+      "f1": 0.09171684213592907,
+      "auc": NaN
+    }
+  },
+  "Neural Network": {
+    "parameters": {
+      "activation": "relu",
+      "alpha": 0.0001,
+      "batch_size": "auto",
+      "beta_1": 0.9,
+      "beta_2": 0.999,
+      "early_stopping": false,
+      "epsilon": 1e-08,
+      "hidden_layer_sizes": [
+        100,
+        50
+      ],
+      "learning_rate": "adaptive",
+      "learning_rate_init": 0.001,
+      "max_fun": 15000,
+      "max_iter": 1000,
+      "momentum": 0.9,
+      "n_iter_no_change": 10,
+      "nesterovs_momentum": true,
+      "power_t": 0.5,
+      "random_state": 42,
+      "shuffle": true,
+      "solver": "adam",
+      "tol": 0.0001,
+      "validation_fraction": 0.1,
+      "verbose": false,
+      "warm_start": false
+    },
+    "performance": {
+      "accuracy": 0.607838364167478,
+      "precision": 0.1915374552804096,
+      "recall": 0.18949366552927965,
+      "f1": 0.18954558059895857,
+      "auc": NaN,
+      "cv_f1": 0.9010924376798709
+    }
+  },
+  "Ensemble (Voting)": {
+    "parameters": "RF+GB+NN (Soft Voting)",
+    "performance": {
+      "accuracy": 0.797711781888997,
+      "precision": 0.17261730205278591,
+      "recall": 0.19981731468877248,
+      "f1": 0.17852180677300258,
+      "auc": NaN,
+      "cv_f1": 0.9427277186049787
+    }
+  },
+  "Improved Gradient Boosting": {
+    "parameters": "Class Weighted",
+    "performance": {
+      "accuracy": 0.6248782862706913,
+      "f1": 0.19275909623873164,
+      "precision": 0.19275909623873164,
+      "recall": 0.19275909623873164
+    }
+  }
+}

@@ -37,18 +37,41 @@ class UnifiedMedicalPredictor:
         """Load urine disease (UTI) classifier."""
         try:
             urine_dir = os.path.join(data_config.MODELS_DIR, 'urine_classifiers')
-            metadata_path = os.path.join(urine_dir, 'best_model_metadata.json')
             
-            with open(metadata_path, 'r') as f:
-                metadata = json.load(f)
+            # Try loading optimized model first
+            optimized_model_path = os.path.join(urine_dir, 'optimized_urine_classifier.pkl')
+            optimized_metadata_path = os.path.join(urine_dir, 'optimized_model_metadata.json')
             
-            model_path = os.path.join(urine_dir, metadata['best_model_file'])
-            self.urine_model = joblib.load(model_path)
-            self.urine_model_name = metadata['best_model']
-            
-            print(f"✅ Loaded Urine Classifier: {self.urine_model_name}")
-            print(f"   Recall: {metadata['performance']['test_recall']:.2%}")
-            
+            if os.path.exists(optimized_model_path) and os.path.exists(optimized_metadata_path):
+                self.urine_model = joblib.load(optimized_model_path)
+                with open(optimized_metadata_path, 'r') as f:
+                    metadata = json.load(f)
+                self.urine_model_name = f"Optimized {metadata.get('model_name', 'Model')}"
+                
+                # Get performance metric (handle different metadata formats)
+                if 'performance' in metadata:
+                    perf = metadata['performance']
+                    metric = f"Accuracy: {perf.get('accuracy', 0):.2%}"
+                else:
+                    metric = "Performance data unavailable"
+                    
+                print(f"✅ Loaded Urine Classifier: {self.urine_model_name}")
+                print(f"   {metric}")
+                
+            else:
+                # Fallback to standard best model
+                metadata_path = os.path.join(urine_dir, 'best_model_metadata.json')
+                if os.path.exists(metadata_path):
+                    with open(metadata_path, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    model_path = os.path.join(urine_dir, metadata['best_model_file'])
+                    self.urine_model = joblib.load(model_path)
+                    self.urine_model_name = metadata['best_model']
+                    print(f"✅ Loaded Urine Classifier: {self.urine_model_name}")
+                else:
+                    print("⚠️  No urine classifier found")
+
         except Exception as e:
             print(f"⚠️  Could not load urine classifier: {e}")
     
@@ -56,21 +79,51 @@ class UnifiedMedicalPredictor:
         """Load kidney disease (CKD) classifier."""
         try:
             kidney_dir = os.path.join(data_config.MODELS_DIR, 'kidney_classifiers')
-            metadata_path = os.path.join(kidney_dir, 'best_model_metadata.json')
             
-            with open(metadata_path, 'r') as f:
-                metadata = json.load(f)
+            # Try loading optimized model first
+            optimized_model_path = os.path.join(kidney_dir, 'optimized_kidney_classifier.pkl')
+            optimized_metadata_path = os.path.join(kidney_dir, 'optimized_model_metadata.json')
             
-            model_path = os.path.join(kidney_dir, metadata['best_model_file'])
-            self.kidney_model = joblib.load(model_path)
-            self.kidney_model_name = metadata['best_model']
-            
-            # Load label encoder
-            le_path = os.path.join(kidney_dir, 'label_encoder.pkl')
-            self.kidney_label_encoder = joblib.load(le_path)
-            
-            print(f"✅ Loaded Kidney Classifier: {self.kidney_model_name}")
-            print(f"   Accuracy: {metadata['performance']['test_accuracy']:.2%}")
+            if os.path.exists(optimized_model_path) and os.path.exists(optimized_metadata_path):
+                self.kidney_model = joblib.load(optimized_model_path)
+                with open(optimized_metadata_path, 'r') as f:
+                    metadata = json.load(f)
+                self.kidney_model_name = f"Optimized {metadata.get('model_name', 'Model')}"
+                
+                # Load label encoder
+                le_path = os.path.join(kidney_dir, 'label_encoder.pkl')
+                if os.path.exists(le_path):
+                    self.kidney_label_encoder = joblib.load(le_path)
+                
+                # Get performance metric
+                if 'performance' in metadata:
+                    perf = metadata['performance']
+                    metric = f"CV F1: {perf.get('cv_f1', 0):.2%}, Test Acc: {perf.get('accuracy', 0):.2%}"
+                else:
+                    metric = "Performance data unavailable"
+                
+                print(f"✅ Loaded Kidney Classifier: {self.kidney_model_name}")
+                print(f"   {metric}")
+                
+            else:
+                # Fallback to standard best model
+                metadata_path = os.path.join(kidney_dir, 'best_model_metadata.json')
+                if os.path.exists(metadata_path):
+                    with open(metadata_path, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    model_path = os.path.join(kidney_dir, metadata['best_model_file'])
+                    self.kidney_model = joblib.load(model_path)
+                    self.kidney_model_name = metadata['best_model']
+                    
+                    # Load label encoder
+                    le_path = os.path.join(kidney_dir, 'label_encoder.pkl')
+                    if os.path.exists(le_path):
+                        self.kidney_label_encoder = joblib.load(le_path)
+                        
+                    print(f"✅ Loaded Kidney Classifier: {self.kidney_model_name}")
+                else:
+                    print("⚠️  No kidney classifier found")
             
         except Exception as e:
             print(f"⚠️  Could not load kidney classifier: {e}")

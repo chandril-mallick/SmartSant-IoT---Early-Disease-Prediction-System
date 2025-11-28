@@ -1,0 +1,111 @@
+{
+  "model_name": "Gradient_Boosting",
+  "optimization_method": "SMOTE-ENN + Threshold Tuning",
+  "optimal_thresholds": {
+    "High_Risk": 0.04,
+    "Low_Risk": 0.01,
+    "Moderate_Risk": 0.01,
+    "No_Disease": 0.01,
+    "Severe_Disease": 0.03
+  },
+  "performance": {
+    "accuracy": 0.13437195715676728,
+    "macro_precision": 0.19981509065768688,
+    "macro_recall": 0.2107710898779848,
+    "macro_f1": 0.08009883021486024,
+    "weighted_precision": 0.6431145323888773,
+    "weighted_recall": 0.13437195715676728,
+    "weighted_f1": 0.10160408268371936,
+    "per_class": {
+      "High_Risk": {
+        "precision": 0.049723756906077346,
+        "recall": 0.054878048780487805,
+        "f1-score": 0.05217391304347826,
+        "support": 164.0
+      },
+      "Low_Risk": {
+        "precision": 0.10242510699001427,
+        "recall": 0.8734793187347932,
+        "f1-score": 0.18335035750766088,
+        "support": 411.0
+      },
+      "Moderate_Risk": {
+        "precision": 0.06153846153846154,
+        "recall": 0.07317073170731707,
+        "f1-score": 0.06685236768802229,
+        "support": 164.0
+      },
+      "No_Disease": {
+        "precision": 0.7853881278538812,
+        "recall": 0.05232735016732583,
+        "f1-score": 0.09811751283513977,
+        "support": 3287.0
+      },
+      "Severe_Disease": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 82.0
+      },
+      "accuracy": 0.13437195715676728,
+      "macro avg": {
+        "precision": 0.19981509065768688,
+        "recall": 0.2107710898779848,
+        "f1-score": 0.08009883021486024,
+        "support": 4108.0
+      },
+      "weighted avg": {
+        "precision": 0.6431145323888773,
+        "recall": 0.13437195715676728,
+        "f1-score": 0.10160408268371936,
+        "support": 4108.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        9,
+        136,
+        10,
+        8,
+        1
+      ],
+      [
+        13,
+        359,
+        14,
+        25,
+        0
+      ],
+      [
+        7,
+        136,
+        12,
+        8,
+        1
+      ],
+      [
+        147,
+        2808,
+        154,
+        172,
+        6
+      ],
+      [
+        5,
+        66,
+        5,
+        6,
+        0
+      ]
+    ]
+  },
+  "classes": [
+    "High_Risk",
+    "Low_Risk",
+    "Moderate_Risk",
+    "No_Disease",
+    "Severe_Disease"
+  ],
+  "training_samples": 52748,
+  "test_samples": 4108
+}

@@ -1,0 +1,98 @@
+{
+  "strategy": "Enhanced_Class_Weights",
+  "strategy_details": {
+    "name": "Enhanced_Class_Weights",
+    "power": 1.0,
+    "f1": 0.17779580797836375
+  },
+  "performance": {
+    "accuracy": 0.8001460564751705,
+    "macro_precision": 0.16002921129503409,
+    "macro_recall": 0.2,
+    "macro_f1": 0.17779580797836375,
+    "per_class": {
+      "High_Risk": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 164.0
+      },
+      "Low_Risk": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 411.0
+      },
+      "Moderate_Risk": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 164.0
+      },
+      "No_Disease": {
+        "precision": 0.8001460564751705,
+        "recall": 1.0,
+        "f1-score": 0.8889790398918188,
+        "support": 3287.0
+      },
+      "Severe_Disease": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 82.0
+      },
+      "accuracy": 0.8001460564751705,
+      "macro avg": {
+        "precision": 0.16002921129503409,
+        "recall": 0.2,
+        "f1-score": 0.17779580797836375,
+        "support": 4108.0
+      },
+      "weighted avg": {
+        "precision": 0.6402337116927667,
+        "recall": 0.8001460564751705,
+        "f1-score": 0.711313073058522,
+        "support": 4108.0
+      }
+    }
+  },
+  "classes": [
+    "High_Risk",
+    "Low_Risk",
+    "Moderate_Risk",
+    "No_Disease",
+    "Severe_Disease"
+  ],
+  "all_strategies_comparison": {
+    "strategy_1": {
+      "name": "Enhanced_Class_Weights",
+      "f1": 0.17779580797836375,
+      "precision": 0.16002921129503409,
+      "recall": 0.2
+    },
+    "strategy_2": {
+      "name": "Threshold_Tuned",
+      "f1": 0.025061840076264143,
+      "precision": 0.03869008667111134,
+      "recall": 0.18853183787312325
+    },
+    "strategy_3": {
+      "name": "Cost_Sensitive",
+      "f1": 0.17752504738694827,
+      "precision": 0.1599414491339351,
+      "recall": 0.1994523881959233
+    },
+    "strategy_4": {
+      "name": "Enhanced_Neural_Network",
+      "f1": 0.012794573643410852,
+      "precision": 0.013642293947472914,
+      "recall": 0.19146341463414634
+    },
+    "strategy_5": {
+      "name": "Calibrated_Ensemble",
+      "f1": 0.17779580797836375,
+      "precision": 0.16002921129503409,
+      "recall": 0.2
+    }
+  }
+}

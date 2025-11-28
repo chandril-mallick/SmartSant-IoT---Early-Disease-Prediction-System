@@ -1,0 +1,48 @@
+{
+  "model_name": "Neural_Network",
+  "optimization_method": "RandomizedSearchCV + Ensemble + Calibration",
+  "performance": {
+    "accuracy": 0.9097222222222222,
+    "precision": 0.2222222222222222,
+    "recall": 0.25,
+    "f1": 0.23529411764705882,
+    "auc": 0.6989889705882353
+  },
+  "all_models": {
+    "Enhanced_Random_Forest": {
+      "accuracy": 0.9305555555555556,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc": 0.7176011029411765
+    },
+    "Gradient_Boosting": {
+      "accuracy": 0.9270833333333334,
+      "precision": 0.14285714285714285,
+      "recall": 0.0625,
+      "f1": 0.08695652173913043,
+      "auc": 0.6824448529411765
+    },
+    "Neural_Network": {
+      "accuracy": 0.9097222222222222,
+      "precision": 0.2222222222222222,
+      "recall": 0.25,
+      "f1": 0.23529411764705882,
+      "auc": 0.6989889705882353
+    },
+    "Voting_Ensemble": {
+      "accuracy": 0.9270833333333334,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc": 0.6943933823529411
+    },
+    "Calibrated_Model": {
+      "accuracy": 0.9236111111111112,
+      "precision": 0.125,
+      "recall": 0.0625,
+      "f1": 0.08333333333333333,
+      "auc": 0.6886488970588235
+    }
+  }
+}

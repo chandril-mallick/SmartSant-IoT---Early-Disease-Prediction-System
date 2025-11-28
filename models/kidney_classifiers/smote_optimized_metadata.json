@@ -1,0 +1,88 @@
+{
+  "model_name": "Neural_Network",
+  "training_method": "SMOTE + Optimization",
+  "performance": {
+    "accuracy": 0.7018013631937683,
+    "macro_precision": 0.1982864503713047,
+    "macro_recall": 0.19868032574631783,
+    "macro_f1": 0.1968558949247851,
+    "per_class": {
+      "High_Risk": {
+        "precision": 0.0297029702970297,
+        "recall": 0.018292682926829267,
+        "f1-score": 0.022641509433962263,
+        "support": 164.0
+      },
+      "Low_Risk": {
+        "precision": 0.11070110701107011,
+        "recall": 0.072992700729927,
+        "f1-score": 0.08797653958944282,
+        "support": 411.0
+      },
+      "Moderate_Risk": {
+        "precision": 0.037383177570093455,
+        "recall": 0.024390243902439025,
+        "f1-score": 0.02952029520295203,
+        "support": 164.0
+      },
+      "No_Disease": {
+        "precision": 0.7982603815937149,
+        "recall": 0.8655308792211743,
+        "f1-score": 0.8305356882206977,
+        "support": 3287.0
+      },
+      "Severe_Disease": {
+        "precision": 0.015384615384615385,
+        "recall": 0.012195121951219513,
+        "f1-score": 0.013605442176870748,
+        "support": 82.0
+      },
+      "accuracy": 0.7018013631937683,
+      "macro avg": {
+        "precision": 0.1982864503713047,
+        "recall": 0.19868032574631783,
+        "f1-score": 0.1968558949247851,
+        "support": 4108.0
+      },
+      "weighted avg": {
+        "precision": 0.6527857098324823,
+        "recall": 0.7018013631937683,
+        "f1-score": 0.6757057807136445,
+        "support": 4108.0
+      }
+    }
+  },
+  "classes": [
+    "High_Risk",
+    "Low_Risk",
+    "Moderate_Risk",
+    "No_Disease",
+    "Severe_Disease"
+  ],
+  "all_models_comparison": {
+    "Random_Forest": {
+      "f1": 0.17779580797836375,
+      "precision": 0.16002921129503409,
+      "recall": 0.2,
+      "accuracy": 0.8001460564751705
+    },
+    "Gradient_Boosting": {
+      "f1": 0.17779580797836375,
+      "precision": 0.16002921129503409,
+      "recall": 0.2,
+      "accuracy": 0.8001460564751705
+    },
+    "Neural_Network": {
+      "f1": 0.1968558949247851,
+      "precision": 0.1982864503713047,
+      "recall": 0.19868032574631783,
+      "accuracy": 0.7018013631937683
+    },
+    "Calibrated_Ensemble": {
+      "f1": 0.1777356959285811,
+      "precision": 0.160009741841208,
+      "recall": 0.19987830848798296,
+      "accuracy": 0.7996592015579357
+    }
+  }
+}

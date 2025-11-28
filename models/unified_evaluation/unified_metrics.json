@@ -1,0 +1,17 @@
+{
+  "urine_system": {
+    "accuracy": 0.9270833333333334,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "auc": 0.7254136029411765
+  },
+  "kidney_system": {
+    "accuracy": 0.8001460564751705,
+    "precision": 0.16002921129503409,
+    "recall": 0.2,
+    "f1": 0.17779580797836375,
+    "auc": 0.5023965483659142
+  },
+  "overall_system_health": "Operational"
+}
