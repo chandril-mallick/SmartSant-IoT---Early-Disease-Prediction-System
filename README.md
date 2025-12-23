@@ -1,4 +1,4 @@
-# 🏥 SmartSant-IoT: Early Disease Prediction System
+#  SmartSant-IoT: Early Disease Prediction System
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-orange.svg)](https://pytorch.org/)
@@ -7,30 +7,30 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B.svg)](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
 
 ## Quick Links
-- 🌐 **Live Demo**: https://smartsant-iot---early-disease-prediction-system.streamlit.app/
-- 📖 **Documentation**: #documentation
-- 🚀 **Installation**: #installation
-- 💻 **API Docs**: #api-documentation
+-  **Live Demo**: https://smartsant-iot---early-disease-prediction-system.streamlit.app/
+-  **Documentation**: #documentation
+-  **Installation**: #installation
+-  **API Docs**: #api-documentation
 
 ---
 
-## 🌐 Live Demo
+##  Live Demo
 
 **Try the interactive web application now!**
 
 [Launch Live Demo](https://smartsant-iot---early-disease-prediction-system.streamlit.app/)
 
 ### Demo Features
-- 💧 **Urine Analysis** – Real‑time UTI detection with an interactive form
-- 📊 **Visual Analytics** – Probability gauges and risk factor analysis
-- 🎨 **Modern UI** – Gradient design with responsive layout
-- ⚡ **Instant Results** – Predictions in seconds
+-  **Urine Analysis** – Real‑time UTI detection with an interactive form
+-  **Visual Analytics** – Probability gauges and risk factor analysis
+-  **Modern UI** – Gradient design with responsive layout
+- **Instant Results** – Predictions in seconds
 
 > **Note**: The live demo uses the optimized Random Forest model with 93% accuracy. Simply enter test parameters and click **Analyze** to see results!
 
 ---
 
-## 🎯 Project Overview
+##  Project Overview
 
 **SmartSant‑IoT** is a comprehensive early disease prediction system that combines:
 - **Urine Disease Classification** – UTI detection (93% accuracy)
@@ -39,7 +39,7 @@
 - **RESTful API** – Production‑ready FastAPI backend
 - **Explainable AI** – SHAP values and Grad‑CAM visualizations
 
-### 🏆 Key Achievements
+###  Key Achievements
 - ✅ 93.06% accuracy on UTI classification (Random Forest)
 - ✅ Multi‑class kidney disease prediction (5 risk levels)
 - ✅ CNN‑based stool image classification (EfficientNet‑B0)
@@ -48,7 +48,7 @@
 
 ---
 
-## �️ Features
+##  Features
 
 ### 1. Urine Disease Classification
 - **Task**: Binary classification (UTI vs. No‑UTI)
@@ -105,7 +105,7 @@ SmartSant-IoT/
 
 ---
 
-## � Installation
+##  Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -128,7 +128,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🏃‍♂️ Quick Start
+##  Quick Start
 
 ### 1. Train Models
 ```bash
@@ -167,7 +167,7 @@ Access the API at `http://localhost:8000` and interactive docs at `http://localh
 
 ---
 
-## 📊 Model Performance
+##  Model Performance
 
 ### Urine Disease Classifier (UTI Detection)
 | Model | Accuracy | Precision | Recall | F1‑Score | AUC‑ROC |
@@ -191,7 +191,7 @@ Access the API at `http://localhost:8000` and interactive docs at `http://localh
 
 ---
 
-## � Technical Details
+##  Technical Details
 
 ### Preprocessing Pipelines
 #### Urine Data
@@ -234,7 +234,7 @@ Comprehensive guides are available in the `reports/` directory:
 
 ---
 
-## 🔄 Git Workflow
+##  Git Workflow
 
 ### Auto‑Push Script
 ```bash
@@ -251,7 +251,7 @@ git push origin main
 
 ---
 
-## 🧪 Testing
+##  Testing
 ```bash
 # Run unit tests
 pytest tests/ -v --cov=. --cov-report=html
@@ -264,7 +264,7 @@ python3 training/evaluate_optimized_model.py
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Streamlit Cloud (Live) ✅
 - **URL**: https://smartsant-iot---early-disease-prediction-system.streamlit.app/
@@ -284,7 +284,7 @@ docker run -p 8000:8000 smartsant-iot
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
@@ -299,23 +299,23 @@ docker run -p 8000:8000 smartsant-iot
 
 ---
 
-## 📄 License
+##  License
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Author
+##  Author
 **Chandril Mallick**
 - GitHub: [@chandril-mallick](https://github.com/chandril-mallick)
 - Repository: [SmartSant‑IoT](https://github.com/chandril-mallick/SmartSant-IoT---Early-Disease-Prediction-System)
 
-## 👥 Contributors
+##  Contributors
 
 - **Rik Mondal** – [@mondalrik08k-web](https://github.com/mondalrik08k-web)
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 - **PyTorch** – deep learning framework
 - **FastAPI** – modern API development
 - **Scikit‑learn** – classic ML algorithms
@@ -331,7 +331,7 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ---
 
-## 🔮 Future Roadmap
+##  Future Roadmap
 - [ ] XGBoost integration for urine classification
 - [ ] Real‑time IoT sensor integration
 - [ ] React Native mobile app
@@ -343,7 +343,7 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ---
 
-## 📊 Project Stats
+##  Project Stats
 - **Total Lines of Code**: ~15,000+
 - **Models Trained**: 10+ (across all disease types)
 - **Datasets**: 3 (Urine, Kidney, Stool)
